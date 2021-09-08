@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Quản lí Nhân Viên</h2>
+    <form action="/home/create" method="post">
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th>Employee Code</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Branch</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${NhanVien}" >
+            <td><input th:field="*{maNv}"></td>
+            <td><input th:field="*{tenNv}"></td>
+            <td><input th:field="*{tuoiNv}"></td>
+            <td><input th:field="*{luongNv}"></td>
+
+           <td>
+               <select th:field="*{phongBan}">
+                   <option th:each="phongBan:${listPhongBan}"th:text="${phongBan.tenPb}" th:value="${phongBan.id}"></option>
+               </select>
+           </td>
+
+        </tr>
+        </tbody>
+    </table>
+        <button type="submit" class="btn btn-default">Create</button>
+    </form>
+</div>
+
+</body>
+</html>
