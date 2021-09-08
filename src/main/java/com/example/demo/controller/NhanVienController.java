@@ -74,6 +74,12 @@ public class NhanVienController {
         modelAndView.addObject("NhanVien", iNhanVienService.findById(id));
         return modelAndView;
     }
+@GetMapping("/showAdmin")
+public ModelAndView showAdmin() {
+    ModelAndView modelAndView = new ModelAndView("showAdmin");
+    return modelAndView;
+}
+
 
 }
 
